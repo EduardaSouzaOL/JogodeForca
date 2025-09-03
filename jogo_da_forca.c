@@ -1,7 +1,24 @@
 #include <stdio.h>
 #include <string.h>
+
+void abertura(){
+    printf("*********************\n");
+    printf("*   Jogo de Forca    *\n");
+    printf("*********************\n\n");
+}
+
+void chuta(char chutes[26], int tentativas){
+        char chute;
+        scanf(" %c", &chute);
+
+        chutes[tentativas] = chute;
+        tentativas++;
+}
+
+
 int main()
 {
+    //imprime a palavra secreta
     char palavrasecreta[20];
     sprintf(palavrasecreta, "MELANCIA");
 
@@ -11,18 +28,15 @@ int main()
     char chutes[26];
     int tentativas = 0;
 
-    //titulo
-    printf("*********************\n");
-    printf("*   Jogo de Forca    *\n");
-    printf("*********************\n\n");
+    abertura(chutes, tentativas);
 
     do
     {
-        // tracejado
+        // imprime a palavra secreta
         for (int i = 0; i < (strlen(palavrasecreta)); i++)
         {
             int achou = 0;
-
+            // a letra ja foi chutada?
             for (int j = 0; j < tentativas; j++)
             {
                 if (chutes[j] == palavrasecreta[i])
@@ -41,11 +55,8 @@ int main()
             }
         }
         printf("\n");
-
-        char chute;
-        scanf(" %c", &chute);
-
-        chutes[tentativas] = chute;
-        tentativas++;
+        //captura novo chute
+        chuta(chutes[26], tentativas);
     } while (!acertou && !enforcou);
+
 }
