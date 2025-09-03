@@ -11,6 +11,11 @@ int main()
     char chutes[26];
     int tentativas = 0;
 
+    //titulo
+    printf("*********************\n");
+    printf("*   Jogo de Forca    *\n");
+    printf("*********************\n\n");
+
     do
     {
         // tracejado
