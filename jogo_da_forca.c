@@ -13,7 +13,7 @@ int main()
         // chute do usúario
         char chute;
         scanf("%c", &chute);
-        //varre o array e verifica quais posições da letra chutada
+        //varre o array e verifica quais posições da letra
         for (int i = 0; i < strlen(palavrasecreta); i++)
         {
             if (palavrasecreta[i] == chute)
