@@ -4,24 +4,48 @@ int main()
 {
     char palavrasecreta[20];
     sprintf(palavrasecreta, "MELANCIA");
- 
 
     int acertou = 0;
     int enforcou = 0;
+
+    char chutes[26];
+    int tentativas = 0;
     do
     {
-        // chute do usúario
-        char chute;
-        scanf("%c", &chute);
-        //varre o array e verifica quais posições da letra
+        // tracejado
         for (int i = 0; i < strlen(palavrasecreta); i++)
         {
-            if (palavrasecreta[i] == chute)
+
+            int achou = 0;
+
+            printf("Estou vendo a letra secreta %d  = %c\n", i, palavrasecreta[i]);
+
+            for (int j = 0; j < tentativas; j++)
             {
-                printf("A posição %d tem essa letra\n", i);
+
+                printf("-> Chute %d = %c\n", j, chutes[j]);
+                if (chutes[j] == palavrasecreta[i])
+                {
+                    printf("---> chute correto!\n");
+                    achou = 1;
+                    break;
+                }
+            }
+            if (achou)
+            {
+                printf("%c ", palavrasecreta[i]);
+            }
+            else
+            {
+                printf("_");
             }
         }
-        // enquanto não acertou e não enforcou
+        printf("\n");
+
+        char chute;
+        scanf(" %c", &chute);
+
+        chutes[tentativas] = chute;
+        tentativas++;
     } while (!acertou && !enforcou);
- 
 }
